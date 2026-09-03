@@ -1,0 +1,24 @@
+model LoadSheddingSchedule {
+    id String @id @default(uuid())
+
+    areaId String
+    date   DateTime
+
+    startTime String
+    endTime   String
+
+    reason String?
+    status ScheduleStatus @default(SCHEDULED)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    // Relation
+    area Area @relation(fields: [areaId], references: [id], onDelete: Cascade)
+
+    @@index([areaId])
+    @@index([date])
+    @@index([status])
+    @@index([areaId, date])
+    @@map("load_shedding_schedules")
+}

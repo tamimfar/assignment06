@@ -1,0 +1,22 @@
+model Area {
+  id          String   @id @default(uuid())
+  name        String
+  district    String
+  division    String
+  description String?
+
+  isActive    Boolean  @default(true)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  schedules   LoadSheddingSchedule[]
+  complaints  Complaint[]
+
+  @@index([district])
+  @@index([division])
+  @@index([isActive])
+
+  @@map("areas")
+}

@@ -1,0 +1,33 @@
+model Assignment {
+    id String @id @default(uuid())
+
+    complaintId  String @unique
+    technicianId String
+    assignedById String
+
+    status AssignmentStatus @default(PENDING)
+
+    assignedAt  DateTime  @default(now())
+    acceptedAt  DateTime?
+    completedAt DateTime?
+
+    note String?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    // Complaint relation
+    complaint Complaint @relation(fields: [complaintId], references: [id], onDelete: Cascade)
+
+    // Technician relation
+    technician User @relation("TechnicianAssignments", fields: [technicianId], references: [id], onDelete: Restrict)
+
+    // Admin who assigned the technician
+    assignedBy User @relation("AssignedByAdmin", fields: [assignedById], references: [id], onDelete: Restrict)
+
+    @@index([technicianId])
+    @@index([assignedById])
+    @@index([status])
+    @@index([assignedAt])
+    @@map("assignments")
+}
