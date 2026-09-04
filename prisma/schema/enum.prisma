@@ -10,6 +10,11 @@ enum UserStatus {
   BLOCKED
 }
 
+enum AuthProvider {
+  GOOGLE
+  CRENTIAL
+}
+
 enum ScheduleStatus {
   SCHEDULED
   IN_PROGRESS

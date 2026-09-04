@@ -1,29 +1,30 @@
 model User {
-  id           String     @id @default(uuid())
-  name         String
-  email        String     @unique
-  password     String?
-  googleId     String?    @unique
-  phone        String?
-  avatar       String?
+    id           String       @id @default(uuid())
+    name         String
+    email        String       @unique
+    password     String?
+    authProvider AuthProvider 
+    googleId     String?      @unique
+    phone        String?
+    avatar       String?
 
-  role         UserRole   @default(USER)
-  status       UserStatus @default(ACTIVE)
+    role   UserRole   @default(USER)
+    status UserStatus @default(ACTIVE)
 
-  emailVerified Boolean   @default(false)
+    emailVerified Boolean @default(false)
 
-  createdAt    DateTime   @default(now())
-  updatedAt    DateTime   @updatedAt
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 
-  // Relations
-  complaints          Complaint[]
-  technicianAssignments Assignment[] @relation("TechnicianAssignments")
-  createdAssignments    Assignment[] @relation("AssignedByAdmin")
-  payments            Payment[]
-  reviews             Review[]
+    // Relations
+    complaints            Complaint[]
+    technicianAssignments Assignment[] @relation("TechnicianAssignments")
+    createdAssignments    Assignment[] @relation("AssignedByAdmin")
+    payments              Payment[]
+    reviews               Review[]
 
-  @@index([role])
-  @@index([status])
-  @@index([email])
-  @@map("users")
+    @@index([role])
+    @@index([status])
+    @@index([email])
+    @@map("users")
 }
