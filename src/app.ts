@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser'
 import { globalErrorHandler } from './app/middleware/globalErrorHandler'
 import { authRouter } from "./app/module/auth/auth.route";
 import { areaRouter } from './app/module/areas/area.route';
+import { scheduleRouter } from './app/module/schedules/schedule.route';
 const app:Application = express()
 
 app.use(cors({
@@ -21,5 +22,6 @@ app.get('/', (req:Request, res:Response) => {
 })
 app.use("/auth", authRouter);
 app.use("/areas", areaRouter);
+app.use("/schedules", scheduleRouter);
 app.use(globalErrorHandler);
 export default app
