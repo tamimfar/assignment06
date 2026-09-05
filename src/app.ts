@@ -7,6 +7,8 @@ import { areaRouter } from './app/module/areas/area.route';
 import { scheduleRouter } from './app/module/schedules/schedule.route';
 import { complaintRouter } from './app/module/complaints/complaint.route';
 import { assignmentRouter } from './app/module/assignments/assignment.route';
+import { paymentRouter } from './app/module/payments/payment.route';
+import { reviewRouter } from './app/module/reviews/review.route';
 const app: Application = express()
 
 app.use(cors({
@@ -27,5 +29,7 @@ app.use("/areas", areaRouter);
 app.use("/schedules", scheduleRouter);
 app.use("/complaints", complaintRouter);
 app.use("/assignments",assignmentRouter);
+app.use("/payments",paymentRouter);
+app.use("/reviews",reviewRouter);
 app.use(globalErrorHandler);
 export default app
