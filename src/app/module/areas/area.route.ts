@@ -9,9 +9,50 @@ import { auth } from "../../middleware/checkAuth";
 import { UserRole } from "../../../generated/prisma/enums";
 
 const router = Router();
-
-
-/*
+        
+/**
+ * @swagger
+ * /areas:
+ *   post:
+ *     summary: Create a new area
+ *     description: Create a new area. ADMIN only.
+ *     tags:
+ *       - Area
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - district
+ *               - division
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: Kasba
+ *               district:
+ *                 type: string
+ *                 example: Brahmanbaria
+ *               division:
+ *                 type: string
+ *                 example: Chattogram
+ *               description:
+ *                 type: string
+ *                 example: Kasba residential area
+ *     responses:
+ *       201:
+ *         description: Area created successfully
+ *       400:
+ *         description: Validation error
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden
+ *//*
 |--------------------------------------------------------------------------
 | Create Area
 |--------------------------------------------------------------------------
@@ -33,6 +74,25 @@ router.post(
 | USER, TECHNICIAN, ADMIN
 */
 
+/**
+ * @swagger
+ * /areas:
+ *   get:
+ *     summary: Get all areas
+ *     description: Get all areas. USER, TECHNICIAN, ADMIN.
+ *     tags:
+ *       - Area
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Areas retrieved successfully
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden
+ */
+
 router.get(
     "/",
     auth(
@@ -51,6 +111,35 @@ router.get(
 | USER, TECHNICIAN, ADMIN
 */
 
+/**
+ * @swagger
+ * /areas/{id}:
+ *   get:
+ *     summary: Get area by ID
+ *     description: Get area by ID. USER, TECHNICIAN, ADMIN.
+ *     tags:
+ *       - Area
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Area ID
+ *     responses:
+ *       200:
+ *         description: Area retrieved successfully
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden
+ *       404:
+ *         description: Area not found
+ *       500:
+ *         description: Internal server error
+ */
 router.get(
     "/:id",
     auth(
@@ -68,7 +157,55 @@ router.get(
 |--------------------------------------------------------------------------
 | ADMIN only
 */
-
+/**
+ * @swagger
+ * /areas/{id}:
+ *   patch:
+ *     summary: Update area by ID
+ *     description: Update area by ID. ADMIN only.
+ *     tags:
+ *       - Area
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Area ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: Kasba
+ *               district:
+ *                 type: string
+ *                 example: Brahmanbaria
+ *               division:
+ *                 type: string
+ *                 example: Chattogram
+ *               description:
+ *                 type: string
+ *                 example: Kasba residential area
+ *               isActive:
+ *                 type: boolean
+ *                 example: true
+ *     responses:
+ *       200:
+ *         description: Area updated successfully
+ *       400:
+ *         description: Validation error
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden   
+ */
 router.patch(
     "/:id",
     auth(UserRole.USER),
@@ -83,7 +220,27 @@ router.patch(
 |--------------------------------------------------------------------------
 | ADMIN only
 */
-
+/**
+ * @swagger
+ * /areas/{id}:
+ *   delete:
+ *     summary: Delete area by ID
+ *     description: Delete area by ID. ADMIN only.
+ *     tags:
+ *       - Area
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Area ID
+ *     responses:
+ *       200:
+ *         description: Area deleted successfully
+*/
 router.delete(
     "/:id",
     auth(UserRole.USER),

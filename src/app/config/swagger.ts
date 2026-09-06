@@ -1,0 +1,78 @@
+import path from "path";
+import swaggerJsdoc from "swagger-jsdoc";
+
+const options: swaggerJsdoc.Options = {
+    definition: {
+        openapi: "3.0.0",
+
+        info: {
+            title: "Load Shedding & Power Management API",
+            version: "1.0.0",
+            description:
+                "REST API for Load Shedding & Power Management Platform.",
+        },
+
+        servers: [
+            {
+                url: "http://localhost:5000",
+                description: "Local development server",
+            },
+        ],
+
+        components: {
+            securitySchemes: {
+                bearerAuth: {
+                    type: "http",
+                    scheme: "bearer",
+                    bearerFormat: "JWT",
+                },
+            },
+        },
+    },
+
+    apis: [
+    path.resolve(
+        process.cwd(),
+        "src/app/module/admin/admin.route.ts"
+    ),
+    path.resolve(
+        process.cwd(),
+        "src/app/module/auth/auth.route.ts"
+    ),
+     path.resolve(
+        process.cwd(),
+        "src/app/module/areas/area.route.ts"
+    ),
+    path.resolve(
+        process.cwd(),
+        "src/app/module/schedules/schedule.route.ts"
+    ),
+    path.resolve(
+        process.cwd(),
+        "src/app/module/complaints/complaint.route.ts"
+    ),
+    path.resolve(
+        process.cwd(),
+        "src/app/module/assignments/assignment.route.ts"
+    ),
+    path.resolve(
+        process.cwd(),
+        "src/app/module/payments/payment.route.ts"
+    ),
+    path.resolve(
+        process.cwd(),
+        "src/app/module/reviews/review.route.ts"
+    ),
+],
+};
+
+const swaggerSpec = swaggerJsdoc(options);
+
+console.log(
+    "Swagger paths:",
+    Object.keys(
+        (swaggerSpec as { paths?: Record<string, unknown> }).paths || {}
+    )
+);
+
+export { swaggerSpec };

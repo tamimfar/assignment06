@@ -179,7 +179,7 @@ const createBkashPayment = async (
             },
 
             body: JSON.stringify({
-                mode: "001",
+                mode: "0011",
 
                 payerReference:
                     userId,

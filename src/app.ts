@@ -9,6 +9,9 @@ import { complaintRouter } from './app/module/complaints/complaint.route';
 import { assignmentRouter } from './app/module/assignments/assignment.route';
 import { paymentRouter } from './app/module/payments/payment.route';
 import { reviewRouter } from './app/module/reviews/review.route';
+import { adminRouter } from './app/module/admin/admin.route';
+import swaggerUi from "swagger-ui-express";
+import {swaggerSpec} from "../src/app/config/swagger";
 const app: Application = express()
 
 app.use(cors({
@@ -20,6 +23,11 @@ app.use(cors({
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
+app.use(
+    "/api-docs",
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerSpec)
+);
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Hello World!')
@@ -31,5 +39,6 @@ app.use("/complaints", complaintRouter);
 app.use("/assignments",assignmentRouter);
 app.use("/payments",paymentRouter);
 app.use("/reviews",reviewRouter);
+app.use("/admin",adminRouter);
 app.use(globalErrorHandler);
 export default app

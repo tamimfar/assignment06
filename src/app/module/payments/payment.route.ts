@@ -22,6 +22,48 @@ const router = Router();
 // USER
 // =====================================================
 
+/**
+ * @swagger
+ * /payments/create:
+ *   post:
+ *     summary: Create a new payment
+ *     description: Create a bKash payment for a resolved complaint. USER only.
+ *     tags:
+ *       - Payment
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - complaintId
+ *             properties:
+ *               complaintId:
+ *                 type: string
+ *                 format: uuid
+ *                 description: ID of the resolved complaint for which payment will be created
+ *                 example: 550e8400-e29b-41d4-a716-446655440000
+ *     responses:
+ *       201:
+ *         description: Payment created successfully
+ *       400:
+ *         description: Complaint is not resolved or invalid payment request
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden
+ *       404:
+ *         description: Complaint not found
+ *       409:
+ *         description: Payment already exists or is already being processed
+ *       500:
+ *         description: Internal server error
+ */
+
+
 router.post(
     "/create",
 
@@ -40,6 +82,34 @@ router.post(
 // USER
 // =====================================================
 
+/**
+ * @swagger
+ * /payments/execute:
+ *   post:
+ *     summary: Execute a payment
+ *     description: Execute a payment. USER only.
+ *     tags:
+ *       - Payment
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               paymentId:
+ *                 type: string
+ *                 example: 123456
+ *     responses:
+ *       201:
+ *         description: Payment executed successfully
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden
+ *       500:
+ *         description: Internal server error   
+ */
 router.post(
     "/execute",
 
@@ -57,6 +127,26 @@ router.post(
 // MY PAYMENTS
 // =====================================================
 
+/**
+ * @swagger
+ * /payments/my:
+ *   get:
+ *     summary: Get my payments
+ *     description: Get my payments. USER only.
+ *     tags:
+ *       - Payment
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Payments retrieved successfully
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden
+ *       500:
+ *         description: Internal server error
+ */
 router.get(
     "/my",
 
@@ -70,6 +160,26 @@ router.get(
 // ADMIN → ALL PAYMENTS
 // =====================================================
 
+/**
+ * @swagger
+ * /payments:
+ *   get:
+ *     summary: Get all payments
+ *     description: Get all payments. ADMIN only.
+ *     tags:
+ *       - Payment
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Payments retrieved successfully
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden
+ *       500:
+ *         description: Internal server error
+ */
 router.get(
     "/",
 
@@ -83,6 +193,28 @@ router.get(
 // SINGLE PAYMENT
 // =====================================================
 
+/**
+ * @swagger
+ * /payments/{id}:
+ *   get:
+ *     summary: Get a payment by ID
+ *     description: Get a payment by ID. USER, ADMIN.
+ *     tags:
+ *       - Payment
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Payment ID
+ *     responses:
+ *       200:
+ *         description: Payment retrieved successfully
+ *       401:
+ */
 router.get(
     "/:id",
 
