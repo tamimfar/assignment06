@@ -14,7 +14,7 @@ const options: swaggerJsdoc.Options = {
 
         servers: [
             {
-                url: "http://localhost:5000",
+                url: "https://assignment6-wheat-seven.vercel.app",
                 description: "Local development server",
             },
         ],
@@ -72,11 +72,11 @@ const options: swaggerJsdoc.Options = {
 
 const swaggerSpec = swaggerJsdoc(options);
 
-console.log(
-    "Swagger paths:",
+
+    
     Object.keys(
         (swaggerSpec as { paths?: Record<string, unknown> }).paths || {}
     )
-);
+
 
 export { swaggerSpec };

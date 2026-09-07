@@ -4040,7 +4040,7 @@ var options = {
     },
     servers: [
       {
-        url: "http://localhost:5000",
+        url: "https://assignment6-wheat-seven.vercel.app",
         description: "Local development server"
       }
     ],
@@ -4094,11 +4094,8 @@ var options = {
   ]
 };
 var swaggerSpec = swaggerJsdoc(options);
-console.log(
-  "Swagger paths:",
-  Object.keys(
-    swaggerSpec.paths || {}
-  )
+Object.keys(
+  swaggerSpec.paths || {}
 );
 
 // src/app/middleware/upload.ts
