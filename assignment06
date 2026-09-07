@@ -1,0 +1,1351 @@
+{
+  "info": {
+    "_postman_id": "11f2be63-77bf-4b27-9a26-f852784bed91",
+    "name": "New Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "34053800",
+    "_collection_link": "https://go.postman.co/collection/34053800-11f2be63-77bf-4b27-9a26-f852784bed91?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Shaharia Ahmed\",\r\n    \"email\": \"s41296193@gmail.com\",\r\n    \"password\":\"12345678\",\r\n    \"phone\": \"01700000000\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/auth/register",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "emailverifywithotp",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"s41296193@gmail.com\",\r\n    \"OTP\":\"651467\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/auth/verification",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "auth",
+                "verification"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"admin@powersafe.com\",\r\n    \"password\":\"Admin@12345\"\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/auth/login",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "refresh-token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/auth/refresh-token",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "auth",
+                "refresh-token"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "google-login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"idToken\": \"{{supabase_service_role_api_key_0529}}Ej9PxaEj_RGtP7Z33HetC4h44V5GZt9kQ7J2HUQ1wDU4gftO3zXvyGT36OJlZ0arvsYfOwspKug2FRe0IRhico7Ya7sWEfsL72T6vzKDCBRPidTpqqRE5BIfG7i7Ux3UICd-pyU_5gfSF5YeK7o3uVIOUE7R3dhZm_EfMQKVMD5SRt_l1GGTW7cjPEQERvIhyX0XsvhfKng\"\r\n\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/auth/google-login",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "auth",
+                "google-login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "areas",
+      "item": [
+        {
+          "name": "createarea",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Kasba2\",\r\n    \"district\": \"Brahmanbaria1\",\r\n    \"division\": \"Chattogram1\",\r\n    \"description\": \"Kasba residential and commercial area2\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/areas",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "areas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getarea",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/areas",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "areas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getareabyid",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Kasba2\",\r\n    \"district\": \"Brahmanbaria1\",\r\n    \"division\": \"Chattogram1\",\r\n    \"description\": \"Kasba residential and commercial area2\"\r\n}"
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/areas/9639f02c-28a1-46eb-90eb-ce406b5a54e2",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "areas",
+                "9639f02c-28a1-46eb-90eb-ce406b5a54e2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updatearea",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Kasba2\",\r\n    \"district\": \"Brahmanbaria1\",\r\n    \"division\": \"Chattogram1\",\r\n    \"description\": \"Kasba residential and commercial area2\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/areas/93e67047-0e47-4220-a547-f93437defda6",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "areas",
+                "93e67047-0e47-4220-a547-f93437defda6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deletearea",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Kasba2\",\r\n    \"district\": \"Brahmanbaria1\",\r\n    \"division\": \"Chattogram1\",\r\n    \"description\": \"Kasba residential and commercial area2\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/areas/93e67047-0e47-4220-a547-f93437defda6",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "areas",
+                "93e67047-0e47-4220-a547-f93437defda6"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Schedule",
+      "item": [
+        {
+          "name": "createSchedule",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"areaId\": \"9639f02c-28a1-46eb-90eb-ce406b5a54e2\",\r\n    \"date\": \"2026-09-05\",\r\n    \"startTime\": \"11:00\",\r\n    \"endTime\": \"13:00\",\r\n    \"reason\": \"Another maintenance\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/schedules",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "schedules"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getSchedule",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"areaId\": \"9639f02c-28a1-46eb-90eb-ce406b5a54e2\",\r\n    \"date\": \"2026-09-05\",\r\n    \"startTime\": \"11:00\",\r\n    \"endTime\": \"13:00\",\r\n    \"reason\": \"Another maintenance\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/schedules?page=2&limit=1",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "schedules"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                },
+                {
+                  "key": "limit",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getSchedulebyid",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"areaId\": \"9639f02c-28a1-46eb-90eb-ce406b5a54e2\",\r\n    \"date\": \"2026-09-05\",\r\n    \"startTime\": \"11:00\",\r\n    \"endTime\": \"13:00\",\r\n    \"reason\": \"Another maintenance\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/schedules/707d643e-1e2d-4ded-b05e-67074721b1d8",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "schedules",
+                "707d643e-1e2d-4ded-b05e-67074721b1d8"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updateSchedule",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"areaId\": \"9639f02c-28a1-46eb-90eb-ce406b5a54e2\",\r\n    \"date\": \"2026-09-05\",\r\n    \"startTime\": \"12:00\",\r\n    \"endTime\": \"13:00\",\r\n    \"reason\": \"Another maintenance\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/schedules/707d643e-1e2d-4ded-b05e-67074721b1d8",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "schedules",
+                "707d643e-1e2d-4ded-b05e-67074721b1d8"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteschedule",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"areaId\": \"9639f02c-28a1-46eb-90eb-ce406b5a54e2\",\r\n    \"date\": \"2026-09-05\",\r\n    \"startTime\": \"12:00\",\r\n    \"endTime\": \"13:00\",\r\n    \"reason\": \"Another maintenance\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/schedules/707d643e-1e2d-4ded-b05e-67074721b1d8",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "schedules",
+                "707d643e-1e2d-4ded-b05e-67074721b1d8"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "complaint",
+      "item": [
+        {
+          "name": "createComplaint",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"areaId\": \"9639f02c-28a1-46eb-90eb-ce406b5a54e2\",\r\n    \"title\": \"Frequent electricity outage\",\r\n    \"description\": \"Electricity is going out repeatedly in our area.\",\r\n    \"priority\": \"HIGH\",\r\n    \"address\": \"Kasba, Brahmanbaria\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/complaints",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "complaints"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getComplaint",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"areaId\": \"YOUR_AREA_UUID\",\r\n    \"title\": \"Frequent electricity outage\",\r\n    \"description\": \"Electricity is going out repeatedly in our area.\",\r\n    \"priority\": \"HIGH\",\r\n    \"address\": \"Kasba, Brahmanbaria\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/complaints",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "complaints"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getComplaintbyid",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"areaId\": \"YOUR_AREA_UUID\",\r\n    \"title\": \"Frequent electricity outage\",\r\n    \"description\": \"Electricity is going out repeatedly in our area.\",\r\n    \"priority\": \"HIGH\",\r\n    \"address\": \"Kasba, Brahmanbaria\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/complaints/86c9e759-6d39-49de-9097-b52b9213b656",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "complaints",
+                "86c9e759-6d39-49de-9097-b52b9213b656"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updateComplaintbyid",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \r\n    \"title\": \"Frequent electricity outage1111111111\",\r\n    \"description\": \"Electricity is going out repeatedly in our area.\",\r\n    \"priority\": \"HIGH\",\r\n    \"address\": \"Kasba, Brahmanbaria\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/complaints/86c9e759-6d39-49de-9097-b52b9213b656",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "complaints",
+                "86c9e759-6d39-49de-9097-b52b9213b656"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteComplaintbyid",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \r\n    \"title\": \"Frequent electricity outage1111111111\",\r\n    \"description\": \"Electricity is going out repeatedly in our area.\",\r\n    \"priority\": \"HIGH\",\r\n    \"address\": \"Kasba, Brahmanbaria\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/complaints/86c9e759-6d39-49de-9097-b52b9213b656",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "complaints",
+                "86c9e759-6d39-49de-9097-b52b9213b656"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "assignment",
+      "item": [
+        {
+          "name": "createassignment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "  { \"complaintId\": \"86c9e759-6d39-49de-9097-b52b9213b656\",\r\n    \"technicianId\": \"932c3afc-2614-4cf3-9738-459115cbf982\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/assignments",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "assignments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getassignment",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/assignments",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "assignments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getassignmentbyid",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/assignments/86c9e759-6d39-49de-9097-b52b9213b656",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "assignments",
+                "86c9e759-6d39-49de-9097-b52b9213b656"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updateassignmentbyid",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/assignments/86c9e759-6d39-49de-9097-b52b9213b656",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "assignments",
+                "86c9e759-6d39-49de-9097-b52b9213b656"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteassignmentbyid",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/86c9e759-6d39-49de-9097-b52b9213b656",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "86c9e759-6d39-49de-9097-b52b9213b656"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "imgupload",
+      "item": [
+        {
+          "name": "imgupload",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "img",
+                  "type": "file",
+                  "uuid": "d29e279f-39d3-456e-8702-7c387fd7c3a1",
+                  "src": "/C:/Users/HELLO/Downloads/Images/37ddf5372460ba39458ec3738baccdfd.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/imgupload/upload",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "imgupload",
+                "upload"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "dashboard",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "img",
+                  "type": "file",
+                  "uuid": "d29e279f-39d3-456e-8702-7c387fd7c3a1",
+                  "src": "/C:/Users/HELLO/Downloads/Images/55f3ca39d53afb99e8eb3ab08f38150f.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/admin/dashboard",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "admin",
+                "dashboard"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "user",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "img",
+                  "type": "file",
+                  "uuid": "d29e279f-39d3-456e-8702-7c387fd7c3a1",
+                  "src": "/C:/Users/HELLO/Downloads/Images/55f3ca39d53afb99e8eb3ab08f38150f.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/admin/users",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "admin",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "technicians",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "img",
+                  "type": "file",
+                  "uuid": "d29e279f-39d3-456e-8702-7c387fd7c3a1",
+                  "src": "/C:/Users/HELLO/Downloads/Images/55f3ca39d53afb99e8eb3ab08f38150f.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/admin/technicians",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "admin",
+                "technicians"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "userstatusupdate",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"ACTIVE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/admin/user/9fef8e43-40c0-4cee-aa9c-e573cc8e248d/status",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "admin",
+                "user",
+                "9fef8e43-40c0-4cee-aa9c-e573cc8e248d",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "usersroleupdate",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"role\": \"USER\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/admin/user/9fef8e43-40c0-4cee-aa9c-e573cc8e248d/role",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "admin",
+                "user",
+                "9fef8e43-40c0-4cee-aa9c-e573cc8e248d",
+                "role"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "usersdelete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"role\": \"USER\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/admin/user/9fef8e43-40c0-4cee-aa9c-e573cc8e248d/role",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "admin",
+                "user",
+                "9fef8e43-40c0-4cee-aa9c-e573cc8e248d",
+                "role"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "payment",
+      "item": [
+        {
+          "name": "createpayment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"complaintId\": \"2cf75732-c8bf-485d-b734-417093fd939e\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/payments/create",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "payments",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "payments/execute",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"paymentId\": \"TR00110WTl00V1788683416780\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/payments/execute",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "payments",
+                "execute"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "payments/my",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"paymentId\": \"TR00110WTl00V1788683416780\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/payments/my",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "payments",
+                "my"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get allpayments",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"paymentId\": \"TR00110WTl00V1788683416780\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/payments",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "payments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getpayment byid",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"paymentId\": \"TR00110WTl00V1788683416780\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/payments/f2e51fc7-f8b2-4c0d-be8f-53bfeeb07882",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "payments",
+                "f2e51fc7-f8b2-4c0d-be8f-53bfeeb07882"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "review",
+      "item": [
+        {
+          "name": "createreviews",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"userId\": 1,\r\n  \"complaintId\": 1,\r\n  \"rating\": 5,\r\n  \"comment\": \"Great service!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/reviews",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "reviews"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reviews/my",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"userId\": 1,\r\n  \"complaintId\": 1,\r\n  \"rating\": 5,\r\n  \"comment\": \"Great service!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/reviews/my",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "reviews",
+                "my"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reviews/all",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"userId\": 1,\r\n  \"complaintId\": 1,\r\n  \"rating\": 5,\r\n  \"comment\": \"Great service!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/reviews",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "reviews"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reviews/getbyid",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"userId\": 1,\r\n  \"complaintId\": 1,\r\n  \"rating\": 5,\r\n  \"comment\": \"Great service!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/reviews/7d6b17a4-fc27-4965-a36f-1e382303d4df",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "reviews",
+                "7d6b17a4-fc27-4965-a36f-1e382303d4df"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reviews/update",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"userId\": 1,\r\n  \"complaintId\": 1,\r\n  \"rating\": 5,\r\n  \"comment\": \"Great service!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/reviews/7d6b17a4-fc27-4965-a36f-1e382303d4df",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "reviews",
+                "7d6b17a4-fc27-4965-a36f-1e382303d4df"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reviews/delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"userId\": 1,\r\n  \"complaintId\": 1,\r\n  \"rating\": 5,\r\n  \"comment\": \"Great service!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://assignment6-wheat-seven.vercel.app/reviews/7d6b17a4-fc27-4965-a36f-1e382303d4df",
+              "protocol": "https",
+              "host": [
+                "assignment6-wheat-seven",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "reviews",
+                "7d6b17a4-fc27-4965-a36f-1e382303d4df"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "supabase_service_role_api_key_16c5",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_0529",
+      "secret": true
+    }
+  ]
+}
