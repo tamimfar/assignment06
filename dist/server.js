@@ -4037,7 +4037,7 @@ var options = {
     },
     servers: [
       {
-        url: "https://assignment6-wheat-seven.vercel.app",
+        url: "https://assignment6-wheat-seven.vercel.app/api-docs",
         description: "Production Server"
       },
       {
@@ -4068,6 +4068,7 @@ var options = {
   ]
 };
 var swaggerSpec = swaggerJsdoc(options);
+console.log("Swagger paths:", Object.keys(swaggerSpec.paths || {}));
 
 // src/app/middleware/upload.ts
 import multer from "multer";
