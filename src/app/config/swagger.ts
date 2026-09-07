@@ -16,7 +16,7 @@ const options: swaggerJsdoc.Options = {
 
         servers: [
             {
-                url: "https://assignment6-wheat-seven.vercel.app/api-docs",
+                url: "https://assignment6-wheat-seven.vercel.app",
                 description: "Production Server",
             },
             {
