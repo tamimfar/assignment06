@@ -86,30 +86,43 @@ router.post(
  * @swagger
  * /payments/execute:
  *   post:
- *     summary: Execute a payment
- *     description: Execute a payment. USER only.
+ *     summary: Execute a bKash payment
+ *     description: Execute a pending bKash payment using the payment ID. USER only.
  *     tags:
  *       - Payment
+ *     security:
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
+ *             required:
+ *               - paymentId
  *             properties:
  *               paymentId:
  *                 type: string
- *                 example: 123456
+ *                 description: bKash payment ID received from the create payment response
+ *                 example: TR00110WTl00V1788683416780
  *     responses:
- *       201:
+ *       200:
  *         description: Payment executed successfully
+ *       400:
+ *         description: Invalid payment ID or payment execution failed
  *       401:
  *         description: Unauthorized
  *       403:
- *         description: Forbidden
+ *         description: Forbidden. USER only.
+ *       404:
+ *         description: Payment not found
+ *       409:
+ *         description: Payment has already been completed
  *       500:
- *         description: Internal server error   
+ *         description: Internal server error
  */
+
+
 router.post(
     "/execute",
 

@@ -112,11 +112,11 @@ router.post(
  *               email:
  *                 type: string
  *                 format: email
- *                 example: admin@powersafe.com
+ *                 example: user1@example.com
  *               password:
  *                 type: string
  *                 format: password
- *                 example: Admin@12345
+ *                 example: User@12345
  *     responses:
  *       200:
  *         description: User logged in successfully

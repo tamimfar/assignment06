@@ -292,20 +292,33 @@ const executeBkashPayment = async (
     // Find our payment
     // -------------------------------------------------
 
-    const payment =
-        await prisma.payment.findFirst({
+    // const payment =
+    //     await prisma.payment.findFirst({
 
-            where: {
-                paymentId,
+    //         where: {
+    //             paymentId,
 
-                userId,
-            },
+    //             userId,
+    //         },
 
-            include: {
-                complaint: true,
-            },
-        });
+    //         include: {
+    //             complaint: true,
+    //         },
+    //     });
+console.log("EXECUTE paymentId:", paymentId);
+console.log("EXECUTE userId:", userId);
 
+const payment = await prisma.payment.findFirst({
+    where: {
+       paymentId: paymentId,
+        userId,
+    },
+    include: {
+        complaint: true,
+    },
+});
+
+console.log("FOUND PAYMENT:", payment);
 
     if (!payment) {
         throw new Error(
