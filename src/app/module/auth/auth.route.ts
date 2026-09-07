@@ -8,7 +8,7 @@ import { auth } from "../../middleware/checkAuth";
 
 const router = Router();
 /**
- * @swagger
+ * @openapi
  * /auth/register:
  *   post:
  *     summary: Register user
@@ -34,16 +34,15 @@ const router = Router();
  *               phone:
  *                 type: string
  *                 example: 01712345678
- *               
- *                 responses:
+ *     responses:
  *       200:
  *         description: User registered successfully
  *       401:
- *         description: user already registered
+ *         description: User already registered
  *       403:
  *         description: Forbidden
  *       404:
- *         description: data not found
+ *         description: Data not found
  *       500:
  *         description: Internal server error
  */

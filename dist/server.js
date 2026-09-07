@@ -4024,9 +4024,6 @@ router8.delete(
 );
 var adminRouter = router8;
 
-// src/app.ts
-import swaggerUi from "swagger-ui-express";
-
 // src/app/config/swagger.ts
 import path3 from "path";
 import swaggerJsdoc from "swagger-jsdoc";
@@ -4059,12 +4056,48 @@ var options = {
     }
   },
   apis: [
-    path3.join(process.cwd(), "src/app/module/**/*.route.ts"),
-    path3.join(process.cwd(), "dist/app/module/**/*.route.js")
-    // Targets compiled JS on Vercel
+    path3.resolve(
+      process.cwd(),
+      "src/app/module/admin/admin.route.ts"
+    ),
+    path3.resolve(
+      process.cwd(),
+      "src/app/module/auth/auth.route.ts"
+    ),
+    path3.resolve(
+      process.cwd(),
+      "src/app/module/areas/area.route.ts"
+    ),
+    path3.resolve(
+      process.cwd(),
+      "src/app/module/schedules/schedule.route.ts"
+    ),
+    path3.resolve(
+      process.cwd(),
+      "src/app/module/complaints/complaint.route.ts"
+    ),
+    path3.resolve(
+      process.cwd(),
+      "src/app/module/assignments/assignment.route.ts"
+    ),
+    path3.resolve(
+      process.cwd(),
+      "src/app/module/payments/payment.route.ts"
+    ),
+    path3.resolve(
+      process.cwd(),
+      "src/app/module/reviews/review.route.ts"
+    ),
+    path3.resolve(
+      process.cwd(),
+      "src/app/module/uploadimg/img.route.ts"
+    )
   ]
 };
 var swaggerSpec = swaggerJsdoc(options);
+Object.keys(
+  swaggerSpec.paths || {}
+);
 
 // src/app/middleware/upload.ts
 import multer from "multer";
@@ -4145,19 +4178,42 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-var CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css";
-var JS_URLS = [
-  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.min.js",
-  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.js"
-];
-app.use(
-  "/api-docs",
-  swaggerUi.serve,
-  swaggerUi.setup(swaggerSpec, {
-    customCssUrl: CSS_URL,
-    customJs: JS_URLS
-  })
-);
+app.get("/api-docs.json", (req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  res.send(swaggerSpec);
+});
+app.get("/api-docs", (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>API Documentation</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css" />
+    </head>
+    <body>
+      <div id="swagger-ui"></div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.js"></script>
+      <script>
+        window.onload = () => {
+          window.ui = SwaggerUIBundle({
+            url: '/api-docs.json',
+            dom_id: '#swagger-ui',
+            deepLinking: true,
+            presets: [
+              SwaggerUIBundle.presets.apis,
+              SwaggerUIStandalonePreset
+            ],
+            layout: "StandaloneLayout"
+          });
+        };
+      </script>
+    </body>
+    </html>
+  `);
+});
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
