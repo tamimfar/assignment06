@@ -22,20 +22,27 @@ const createSchedule = catchAsync(
 );
 
 
-const getAllSchedules = catchAsync(
-    async (req: Request, res: Response) => {
+const getAllSchedules = catchAsync(async (req, res) => {
+    const result = await scheduleService.getAllSchedules(
+        req.query as {
+            search?: string;
+            areaId?: string;
+            status?: string;
+            date?: string;
+            sortBy?: string;
+            sortOrder?: "asc" | "desc";
+            page?: string;
+            limit?: string;
+        }
+    );
 
-        const result =
-            await scheduleService.getAllSchedules();
-
-
-        res.status(200).json({
-            success: true,
-            message: "Load shedding schedules retrieved successfully.",
-            data: result,
-        });
-    }
-);
+    res.status(200).json({
+        success: true,
+        message: "Schedules retrieved successfully.",
+        data: result.schedules,
+        meta: result.meta,
+    });
+});
 
 
 const getScheduleById = catchAsync(

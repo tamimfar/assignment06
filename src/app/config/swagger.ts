@@ -63,6 +63,10 @@ const options: swaggerJsdoc.Options = {
         process.cwd(),
         "src/app/module/reviews/review.route.ts"
     ),
+    path.resolve(
+        process.cwd(),
+        "src/app/module/uploadimg/img.route.ts"
+    ),
 ],
 };
 

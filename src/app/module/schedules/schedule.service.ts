@@ -168,27 +168,115 @@ const createSchedule = async (
 // Get All Schedules
 // ------------------------------------------------------------
 
-const getAllSchedules = async () => {
+const getAllSchedules = async (query: {
+    search?: string;
+    areaId?: string;
+    status?: string;
+    date?: string;
+    sortBy?: string;
+    sortOrder?: "asc" | "desc";
+    page?: string;
+    limit?: string;
+}) => {
+    const {
+        search,
+        areaId,
+        status,
+        date,
+        sortBy = "date",
+        sortOrder = "asc",
+        page = "1",
+        limit = "10",
+    } = query;
 
-    const schedules =
-        await prisma.loadSheddingSchedule.findMany({
+    const pageNumber = Math.max(Number(page) || 1, 1);
+    const limitNumber = Math.min(
+        Math.max(Number(limit) || 10, 1),
+        100
+    );
 
+    const skip = (pageNumber - 1) * limitNumber;
+
+    const where: any = {};
+
+    // Search
+    if (search) {
+        where.OR = [
+            {
+                reason: {
+                    contains: search,
+                    mode: "insensitive",
+                },
+            },
+            {
+                area: {
+                    name: {
+                        contains: search,
+                        mode: "insensitive",
+                    },
+                },
+            },
+        ];
+    }
+
+    // Filter by area
+    if (areaId) {
+        where.areaId = areaId;
+    }
+
+    // Filter by status
+    if (status) {
+        where.status = status;
+    }
+
+    // Filter by date
+    if (date) {
+        where.date = date;
+    }
+
+    // Allowed sorting fields
+    const allowedSortFields = [
+        "date",
+        "startTime",
+        "endTime",
+        "createdAt",
+        "updatedAt",
+    ];
+
+    const safeSortBy = allowedSortFields.includes(sortBy)
+        ? sortBy
+        : "date";
+
+    const safeSortOrder =
+        sortOrder === "desc" ? "desc" : "asc";
+
+    const [schedules, total] = await prisma.$transaction([
+        prisma.loadSheddingSchedule.findMany({
+            where,
             include: {
                 area: true,
             },
+            orderBy: {
+                [safeSortBy]: safeSortOrder,
+            },
+            skip,
+            take: limitNumber,
+        }),
 
-            orderBy: [
-                {
-                    date: "asc",
-                },
-                {
-                    startTime: "asc",
-                },
-            ],
-        });
+        prisma.loadSheddingSchedule.count({
+            where,
+        }),
+    ]);
 
-
-    return schedules;
+    return {
+        schedules,
+        meta: {
+            page: pageNumber,
+            limit: limitNumber,
+            total,
+            totalPages: Math.ceil(total / limitNumber),
+        },
+    };
 };
 
 

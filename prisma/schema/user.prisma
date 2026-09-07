@@ -7,6 +7,7 @@ model User {
     googleId     String?      @unique
     phone        String?
     avatar       String?
+    imgId        String?
 
     role   UserRole   @default(USER)
     status UserStatus @default(ACTIVE)

@@ -12,6 +12,7 @@ import { reviewRouter } from './app/module/reviews/review.route';
 import { adminRouter } from './app/module/admin/admin.route';
 import swaggerUi from "swagger-ui-express";
 import {swaggerSpec} from "../src/app/config/swagger";
+import { imgRouter } from './app/module/uploadimg/img.router';
 const app: Application = express()
 
 app.use(cors({
@@ -40,5 +41,6 @@ app.use("/assignments",assignmentRouter);
 app.use("/payments",paymentRouter);
 app.use("/reviews",reviewRouter);
 app.use("/admin",adminRouter);
+app.use("/imgupload", imgRouter);
 app.use(globalErrorHandler);
 export default app
