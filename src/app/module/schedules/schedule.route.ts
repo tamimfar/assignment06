@@ -66,7 +66,7 @@ const router = Router();
  */
 router.post(
     "/",
-    auth(UserRole.USER),
+    auth(UserRole.ADMIN),
     validateRequest(
         scheduleValidation.createScheduleValidation
     ),
@@ -210,7 +210,7 @@ router.get(
  */
 router.patch(
     "/:id",
-    auth(UserRole.USER),
+    auth(UserRole.ADMIN),
     validateRequest(
         scheduleValidation.updateScheduleValidation
     ),
@@ -254,7 +254,7 @@ router.patch(
  */
 router.delete(
     "/:id",
-    auth(UserRole.USER),
+    auth(UserRole.ADMIN),
     scheduleController.deleteSchedule
 );
 

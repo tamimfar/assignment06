@@ -1196,7 +1196,7 @@ var auth = (...requiredRoles) => {
 var router2 = Router2();
 router2.post(
   "/",
-  auth(UserRole.USER),
+  auth(UserRole.ADMIN),
   validatiReqest_default(areaValidation.createAreaValidation),
   areaController.createArea
 );
@@ -1220,13 +1220,13 @@ router2.get(
 );
 router2.patch(
   "/:id",
-  auth(UserRole.USER),
+  auth(UserRole.ADMIN),
   validatiReqest_default(areaValidation.updateAreaValidation),
   areaController.updateArea
 );
 router2.delete(
   "/:id",
-  auth(UserRole.USER),
+  auth(UserRole.ADMIN),
   areaController.deleteArea
 );
 var areaRouter = router2;
@@ -1613,7 +1613,7 @@ var scheduleValidation = {
 var router3 = Router3();
 router3.post(
   "/",
-  auth(UserRole.USER),
+  auth(UserRole.ADMIN),
   validatiReqest_default(
     scheduleValidation.createScheduleValidation
   ),
@@ -1639,7 +1639,7 @@ router3.get(
 );
 router3.patch(
   "/:id",
-  auth(UserRole.USER),
+  auth(UserRole.ADMIN),
   validatiReqest_default(
     scheduleValidation.updateScheduleValidation
   ),
@@ -1647,7 +1647,7 @@ router3.patch(
 );
 router3.delete(
   "/:id",
-  auth(UserRole.USER),
+  auth(UserRole.ADMIN),
   scheduleController.deleteSchedule
 );
 var scheduleRouter = router3;
@@ -2140,7 +2140,6 @@ router4.patch(
 router4.delete(
   "/:id",
   auth(
-    UserRole.USER,
     UserRole.ADMIN
   ),
   complaintController.deleteComplaint
@@ -2631,7 +2630,7 @@ var updateAssignmentValidation = z5.object({
 var router5 = Router5();
 router5.post(
   "/",
-  auth(UserRole.USER),
+  auth(UserRole.ADMIN),
   validatiReqest_default(
     createAssignmentValidation
   ),
@@ -3510,7 +3509,6 @@ router7.patch(
 router7.delete(
   "/:id",
   auth(
-    UserRole.USER,
     UserRole.ADMIN
   ),
   reviewController.deleteReview

@@ -286,7 +286,7 @@ router.patch(
 router.delete(
     "/:id",
     auth(
-        UserRole.USER,
+       
         UserRole.ADMIN
     ),
     reviewController.deleteReview

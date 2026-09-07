@@ -73,7 +73,7 @@ const router = Router();
 router.post(
     "/",
 
-    auth(UserRole.USER),
+    auth(UserRole.ADMIN),
 
     validateRequest(
         createAssignmentValidation

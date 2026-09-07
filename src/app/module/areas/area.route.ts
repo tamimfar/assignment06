@@ -61,7 +61,7 @@ const router = Router();
 
 router.post(
     "/",
-    auth(UserRole.USER),
+    auth(UserRole.ADMIN),
     validateRequest(areaValidation.createAreaValidation),
     areaController.createArea
 );
@@ -208,7 +208,7 @@ router.get(
  */
 router.patch(
     "/:id",
-    auth(UserRole.USER),
+    auth(UserRole.ADMIN),
     validateRequest(areaValidation.updateAreaValidation),
     areaController.updateArea
 );
@@ -243,7 +243,7 @@ router.patch(
 */
 router.delete(
     "/:id",
-    auth(UserRole.USER),
+    auth(UserRole.ADMIN),
     areaController.deleteArea
 );
 
