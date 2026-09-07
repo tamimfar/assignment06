@@ -800,11 +800,10 @@ var authService = {
 
 // src/app/utils/catchAsync.ts
 var catchAsync = (fn) => {
-  return function(req, res, next) {
+  return async (req, res, next) => {
     try {
-      fn(req, res, next);
+      await fn(req, res, next);
     } catch (error) {
-      console.log(error);
       next(error);
     }
   };
@@ -4056,7 +4055,7 @@ var options = {
     }
   },
   apis: [
-    path3.resolve(process.cwd(), "src/app/module/admin/admin.route.ts"),
+    path3.resolve("https://assignment6-wheat-seven.vercel.app", "src/app/module/admin/admin.route.ts"),
     path3.resolve(process.cwd(), "src/app/module/auth/auth.route.ts"),
     path3.resolve(process.cwd(), "src/app/module/areas/area.route.ts"),
     path3.resolve(process.cwd(), "src/app/module/schedules/schedule.route.ts"),
