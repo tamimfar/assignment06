@@ -37,7 +37,7 @@ const options: swaggerJsdoc.Options = {
     },
 
     apis: [
-        path.resolve(process.cwd(), "src/app/module/admin/admin.route.ts"),
+        path.resolve("https://assignment6-wheat-seven.vercel.app", "src/app/module/admin/admin.route.ts"),
         path.resolve(process.cwd(), "src/app/module/auth/auth.route.ts"),
         path.resolve(process.cwd(), "src/app/module/areas/area.route.ts"),
         path.resolve(process.cwd(), "src/app/module/schedules/schedule.route.ts"),
