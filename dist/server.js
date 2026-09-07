@@ -4041,6 +4041,10 @@ var options = {
     servers: [
       {
         url: "https://assignment6-wheat-seven.vercel.app",
+        description: "Production Server"
+      },
+      {
+        url: "http://localhost:5000",
         description: "Local development server"
       }
     ],
@@ -4177,10 +4181,18 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+var CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css";
+var JS_URLS = [
+  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.min.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.js"
+];
 app.use(
   "/api-docs",
   swaggerUi.serve,
-  swaggerUi.setup(swaggerSpec)
+  swaggerUi.setup(swaggerSpec, {
+    customCssUrl: CSS_URL,
+    customJs: JS_URLS
+  })
 );
 app.get("/", (req, res) => {
   res.send("Hello World!");

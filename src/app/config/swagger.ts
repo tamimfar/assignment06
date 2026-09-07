@@ -15,8 +15,12 @@ const options: swaggerJsdoc.Options = {
         servers: [
             {
                 url: "https://assignment6-wheat-seven.vercel.app",
-                description: "Local development server",
+                description: "Production Server",
             },
+            {
+                url: "http://localhost:5000",
+                description: "Local development server",
+            }
         ],
 
         components: {
