@@ -1,3 +1,5 @@
+// src/app/config/swagger.ts
+
 import path from "path";
 import swaggerJsdoc from "swagger-jsdoc";
 
@@ -19,8 +21,8 @@ const options: swaggerJsdoc.Options = {
             },
             {
                 url: "http://localhost:5000",
-                description: "Local development server",
-            }
+                description: "Local Development Server",
+            },
         ],
 
         components: {
@@ -35,52 +37,16 @@ const options: swaggerJsdoc.Options = {
     },
 
     apis: [
-    path.resolve(
-        process.cwd(),
-        "src/app/module/admin/admin.route.ts"
-    ),
-    path.resolve(
-        process.cwd(),
-        "src/app/module/auth/auth.route.ts"
-    ),
-     path.resolve(
-        process.cwd(),
-        "src/app/module/areas/area.route.ts"
-    ),
-    path.resolve(
-        process.cwd(),
-        "src/app/module/schedules/schedule.route.ts"
-    ),
-    path.resolve(
-        process.cwd(),
-        "src/app/module/complaints/complaint.route.ts"
-    ),
-    path.resolve(
-        process.cwd(),
-        "src/app/module/assignments/assignment.route.ts"
-    ),
-    path.resolve(
-        process.cwd(),
-        "src/app/module/payments/payment.route.ts"
-    ),
-    path.resolve(
-        process.cwd(),
-        "src/app/module/reviews/review.route.ts"
-    ),
-    path.resolve(
-        process.cwd(),
-        "src/app/module/uploadimg/img.route.ts"
-    ),
-],
+        path.resolve(process.cwd(), "src/app/module/admin/admin.route.ts"),
+        path.resolve(process.cwd(), "src/app/module/auth/auth.route.ts"),
+        path.resolve(process.cwd(), "src/app/module/areas/area.route.ts"),
+        path.resolve(process.cwd(), "src/app/module/schedules/schedule.route.ts"),
+        path.resolve(process.cwd(), "src/app/module/complaints/complaint.route.ts"),
+        path.resolve(process.cwd(), "src/app/module/assignments/assignment.route.ts"),
+        path.resolve(process.cwd(), "src/app/module/payments/payment.route.ts"),
+        path.resolve(process.cwd(), "src/app/module/reviews/review.route.ts"),
+        path.resolve(process.cwd(), "src/app/module/uploadimg/img.route.ts"),
+    ],
 };
 
-const swaggerSpec = swaggerJsdoc(options);
-
-
-    
-    Object.keys(
-        (swaggerSpec as { paths?: Record<string, unknown> }).paths || {}
-    )
-
-
-export { swaggerSpec };
+export const swaggerSpec = swaggerJsdoc(options);

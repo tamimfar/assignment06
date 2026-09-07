@@ -4042,7 +4042,7 @@ var options = {
       },
       {
         url: "http://localhost:5000",
-        description: "Local development server"
+        description: "Local Development Server"
       }
     ],
     components: {
@@ -4056,48 +4056,18 @@ var options = {
     }
   },
   apis: [
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/admin/admin.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/auth/auth.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/areas/area.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/schedules/schedule.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/complaints/complaint.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/assignments/assignment.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/payments/payment.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/reviews/review.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/uploadimg/img.route.ts"
-    )
+    path3.resolve(process.cwd(), "src/app/module/admin/admin.route.ts"),
+    path3.resolve(process.cwd(), "src/app/module/auth/auth.route.ts"),
+    path3.resolve(process.cwd(), "src/app/module/areas/area.route.ts"),
+    path3.resolve(process.cwd(), "src/app/module/schedules/schedule.route.ts"),
+    path3.resolve(process.cwd(), "src/app/module/complaints/complaint.route.ts"),
+    path3.resolve(process.cwd(), "src/app/module/assignments/assignment.route.ts"),
+    path3.resolve(process.cwd(), "src/app/module/payments/payment.route.ts"),
+    path3.resolve(process.cwd(), "src/app/module/reviews/review.route.ts"),
+    path3.resolve(process.cwd(), "src/app/module/uploadimg/img.route.ts")
   ]
 };
 var swaggerSpec = swaggerJsdoc(options);
-Object.keys(
-  swaggerSpec.paths || {}
-);
 
 // src/app/middleware/upload.ts
 import multer from "multer";
