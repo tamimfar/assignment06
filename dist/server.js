@@ -4059,48 +4059,12 @@ var options = {
     }
   },
   apis: [
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/admin/admin.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/auth/auth.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/areas/area.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/schedules/schedule.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/complaints/complaint.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/assignments/assignment.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/payments/payment.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/reviews/review.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/uploadimg/img.route.ts"
-    )
+    path3.join(process.cwd(), "src/app/module/**/*.route.ts"),
+    path3.join(process.cwd(), "dist/app/module/**/*.route.js")
+    // Targets compiled JS on Vercel
   ]
 };
 var swaggerSpec = swaggerJsdoc(options);
-Object.keys(
-  swaggerSpec.paths || {}
-);
 
 // src/app/middleware/upload.ts
 import multer from "multer";
