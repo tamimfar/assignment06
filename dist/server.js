@@ -4028,7 +4028,6 @@ var adminRouter = router8;
 import swaggerUi from "swagger-ui-express";
 
 // src/app/config/swagger.ts
-import path3 from "path";
 import swaggerJsdoc from "swagger-jsdoc";
 var options = {
   definition: {
@@ -4041,6 +4040,10 @@ var options = {
     servers: [
       {
         url: "https://assignment6-wheat-seven.vercel.app",
+        description: "Production server"
+      },
+      {
+        url: "http://localhost:5000",
         description: "Local development server"
       }
     ],
@@ -4055,48 +4058,10 @@ var options = {
     }
   },
   apis: [
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/admin/admin.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/auth/auth.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/areas/area.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/schedules/schedule.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/complaints/complaint.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/assignments/assignment.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/payments/payment.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/reviews/review.route.ts"
-    ),
-    path3.resolve(
-      process.cwd(),
-      "src/app/module/uploadimg/img.route.ts"
-    )
+    "./src/app/module/**/*.route.ts"
   ]
 };
 var swaggerSpec = swaggerJsdoc(options);
-Object.keys(
-  swaggerSpec.paths || {}
-);
 
 // src/app/middleware/upload.ts
 import multer from "multer";
