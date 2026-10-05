@@ -831,13 +831,13 @@ var login2 = async (req, res) => {
   const result = await authService.login(req.body);
   res.cookie("accessToken", result.accessToken, {
     httpOnly: true,
-    secure: true,
+    secure: false,
     sameSite: "lax",
     maxAge: 15 * 60 * 1e3
   });
   res.cookie("refreshToken", result.refreshToken, {
     httpOnly: true,
-    secure: true,
+    secure: false,
     sameSite: "lax",
     maxAge: 7 * 24 * 60 * 60 * 1e3
   });
