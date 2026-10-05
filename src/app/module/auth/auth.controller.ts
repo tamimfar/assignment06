@@ -30,14 +30,16 @@ const verification =catchAsync( async (req: Request, res: Response) => {
 const login = async (req: Request, res: Response) => {
     const result = await authService.login(req.body);
 
-    res.cookie("accessToken", result.accessToken, {
+    const {accessToken, refreshToken} = result;
+
+    res.cookie("accessToken", accessToken, {
         httpOnly: true,
         secure: true,
         sameSite: "none",
         maxAge: 15 * 60 * 1000,
     });
 
-    res.cookie("refreshToken", result.refreshToken, {
+    res.cookie("refreshToken", refreshToken, {
         httpOnly: true,
         secure: true,
         sameSite: "none",
@@ -48,7 +50,8 @@ const login = async (req: Request, res: Response) => {
         success: true,
         message: "Login successful.",
         data: {
-            user: result.user,
+            accessToken,
+            refreshToken
         },
     });
 };
@@ -72,6 +75,16 @@ const refreshToken = async (req: Request, res: Response) => {
     res.status(httpStatus.OK).json({
         success: true,
         message: "Access token refreshed successfully.",
+        data: null,
+    });
+};
+
+const logout = async (req: Request, res: Response) => {
+    res.clearCookie("accessToken");
+    res.clearCookie("refreshToken");
+    res.status(httpStatus.OK).json({
+        success: true,
+        message: "Logout successful.",
         data: null,
     });
 };
@@ -100,10 +113,21 @@ const googlelogin = catchAsync( async (req: Request, res: Response)=>{
     })
 });
 
+const getme = catchAsync( async (req: Request, res: Response)=>{
+    const result = await authService.getUserByEmail(req.user?.email as string);
+    res.status(httpStatus.OK).json({
+        success: true,
+        message: "Login successful.",
+        data: result
+    })
+});
+
 export const authController = {
     register,
     verification,
     login,
     refreshToken,
-    googlelogin
+    googlelogin,
+    logout,
+    getme
 };

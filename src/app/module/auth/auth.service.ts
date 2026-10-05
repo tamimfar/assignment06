@@ -364,10 +364,20 @@ const googleLogin = async (payload: IGoogleLoginPayload) => {
 		refreshToken
 	}
 }
+
+const getUserByEmail = async (email: string) => {
+    const user = await prisma.user.findUnique({
+        where: {
+            email: email,
+        },
+    });
+    return user;
+}
 export const authService = {
     registerDB,
     verificationDB,
     login,
     refreshToken,
-    googleLogin
+    googleLogin,
+    getUserByEmail
 };

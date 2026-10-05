@@ -790,12 +790,21 @@ var googleLogin = async (payload) => {
     refreshToken: refreshToken3
   };
 };
+var getUserByEmail = async (email) => {
+  const user = await prisma.user.findUnique({
+    where: {
+      email
+    }
+  });
+  return user;
+};
 var authService = {
   registerDB,
   verificationDB,
   login,
   refreshToken,
-  googleLogin
+  googleLogin,
+  getUserByEmail
 };
 
 // src/app/utils/catchAsync.ts
@@ -829,13 +838,14 @@ var verification = catchAsync_default(async (req, res) => {
 });
 var login2 = async (req, res) => {
   const result = await authService.login(req.body);
-  res.cookie("accessToken", result.accessToken, {
+  const { accessToken, refreshToken: refreshToken3 } = result;
+  res.cookie("accessToken", accessToken, {
     httpOnly: true,
     secure: true,
     sameSite: "none",
     maxAge: 15 * 60 * 1e3
   });
-  res.cookie("refreshToken", result.refreshToken, {
+  res.cookie("refreshToken", refreshToken3, {
     httpOnly: true,
     secure: true,
     sameSite: "none",
@@ -845,7 +855,8 @@ var login2 = async (req, res) => {
     success: true,
     message: "Login successful.",
     data: {
-      user: result.user
+      accessToken,
+      refreshToken: refreshToken3
     }
   });
 };
@@ -864,6 +875,15 @@ var refreshToken2 = async (req, res) => {
   res.status(httpStatus2.OK).json({
     success: true,
     message: "Access token refreshed successfully.",
+    data: null
+  });
+};
+var logout = async (req, res) => {
+  res.clearCookie("accessToken");
+  res.clearCookie("refreshToken");
+  res.status(httpStatus2.OK).json({
+    success: true,
+    message: "Logout successful.",
     data: null
   });
 };
@@ -888,12 +908,22 @@ var googlelogin = catchAsync_default(async (req, res) => {
     data: result
   });
 });
+var getme = catchAsync_default(async (req, res) => {
+  const result = await authService.getUserByEmail(req.user?.email);
+  res.status(httpStatus2.OK).json({
+    success: true,
+    message: "Login successful.",
+    data: result
+  });
+});
 var authController = {
   register,
   verification,
   login: login2,
   refreshToken: refreshToken2,
-  googlelogin
+  googlelogin,
+  logout,
+  getme
 };
 
 // src/app/middleware/validatiReqest.ts
@@ -948,6 +978,14 @@ router.post(
 router.post(
   "/google-login",
   authController.googlelogin
+);
+router.post(
+  "/logout",
+  authController.logout
+);
+router.get(
+  "/me",
+  authController.getme
 );
 var authRouter = router;
 

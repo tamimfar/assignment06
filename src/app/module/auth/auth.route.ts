@@ -198,5 +198,13 @@ router.post(
     "/google-login",
     authController.googlelogin,
 );
+router.post(
+    "/logout",
+    authController.logout,
+);
+router.get(
+    "/me",
+    authController.getme,
+);
 
 export const authRouter = router;
