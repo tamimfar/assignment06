@@ -32,14 +32,14 @@ const login = async (req: Request, res: Response) => {
 
     res.cookie("accessToken", result.accessToken, {
         httpOnly: true,
-        secure: config.node_env === "production",
+        secure: true,
         sameSite: "lax",
         maxAge: 15 * 60 * 1000,
     });
 
     res.cookie("refreshToken", result.refreshToken, {
         httpOnly: true,
-        secure: config.node_env === "production",
+        secure: true,
         sameSite: "lax",
         maxAge: 7 * 24 * 60 * 60 * 1000,
     });
